@@ -31,7 +31,8 @@ var state = {
   w: 3,
   spacing: 0.1,
   h: 0.2,
-  y: 2
+  y: 2,
+  totalLength: 0
 }
 
 function getCirclePoint(i, r, sides) {
@@ -121,6 +122,7 @@ function buildScene(settings) {
       totalLength += l;
     }
   }
+  state.totalLength = totalLength;
   return {
     meshes: meshes
   }
@@ -161,6 +163,7 @@ gui.add(state, 'w').min(0).max(100)
 gui.add(state, 'spacing').min(0).max(10);
 gui.add(state, 'h').min(0.01).max(5);
 gui.add(state, 'y').min(0.1).max(10);
+gui.add(state, 'totalLength').listen().decimals(3).disable(true)
 gui.onChange(event => {
   for (const mesh of object.meshes) {
     mesh.geometry.dispose();
