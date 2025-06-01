@@ -148,18 +148,18 @@ function animate() {
 renderer.setAnimationLoop(animate);
 
 const gui = new GUI();
-gui.add(state, 'r1').min(1).max(100).onChange(value => {
+gui.add(state, 'r1').min(1).max(20).onChange(value => {
   if (value <= state.r2) {
     state.r1 = state.r2;
   }
 })
-gui.add(state, 'r2').min(1).max(100).onChange(value => {
+gui.add(state, 'r2').min(1).max(20).onChange(value => {
   if (value >= state.r1) {
     state.r2 = state.r1
   }
 });
-gui.add(state, 'sides').min(4).max(120).step(1);
-gui.add(state, 'w').min(0).max(100)
+gui.add(state, 'sides').min(4).max(20).step(1);
+gui.add(state, 'w').min(0).max(10)
 gui.add(state, 'spacing').min(0).max(10);
 gui.add(state, 'h').min(0.01).max(5);
 gui.add(state, 'y').min(0.1).max(10);
